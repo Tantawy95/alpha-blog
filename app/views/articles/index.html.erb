@@ -1,5 +1,7 @@
 <h1>Articles listing page</h1>
-
+<% if Article.nil? %>
+   <h2> No articles yet </h2>
+   <% end %>
   <table>
     <thead>
       <tr>
