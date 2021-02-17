@@ -1,7 +1,5 @@
 <h1>Articles listing page</h1>
-<% if Article.nil? %>
-   <h2> No articles yet </h2>
-   <% end %>
+
   <table>
     <thead>
       <tr>
@@ -22,5 +20,5 @@
       <% end %>  
     </tbody>
   </table>
-  <h2><%= link_to 'Create new Article', new_article_path %></h2>
-  <h2><%= link_to 'Home page', root_path %></h2>
+  <%= link_to 'Create new Article', new_article_path %> |
+  <%= link_to 'Home page', root_path %>

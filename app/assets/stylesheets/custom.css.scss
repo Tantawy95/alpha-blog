@@ -1,0 +1,39 @@
+@import 'bootstrap/dist/css/bootstrap';
+.navbar {
+  background-color: black !important;
+  }
+.nav-link {
+  color: white !important;
+}
+#logo{
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+.jumbotron{
+  background-image: asset-url('pen.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: -100px -300px;
+  height: 500px;
+}
+#jumbo{
+  margin-top: 40px;
+}
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+
