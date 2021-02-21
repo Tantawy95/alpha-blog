@@ -1,5 +1,6 @@
 <div id="page-content">
 <h1 class="text-center mt-4">Articles listing page</h1>
+<%= link_to 'Create a new Article', new_article_path, class: "btn btn-outline-dark btn-lg ml-4" %>
 <div class="container">
   <% @articles.each do |article| %>
   <div class="row justify-content-md-center">
@@ -25,7 +26,7 @@
   <%end%>
 </div>
 
-  <%= link_to 'Create new Article', new_article_path %>
+  
   <footer id="sticky-footer" class="py-4 bg-dark text-white">
   <div class="container text-center">
     <small>Copyright &copy; Ali Tantawy </small>
