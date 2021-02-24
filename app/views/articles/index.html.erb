@@ -1,4 +1,15 @@
 
 <h1 class="text-center mt-4">Articles listing page</h1>
+
 <%= link_to 'Create a new Article', new_article_path, class: "btn btn-outline-dark btn-lg ml-4 position-fixed" %>
+
+
+<div class="flickr_pagination row justify-content-center mt-4">
+  <%= will_paginate @articles, :container => false %>
+</div>
+
 <%= render 'article' %>
+
+<div class="flickr_pagination mb-4 row justify-content-center">
+  <%= will_paginate @articles, :container => false %>
+</div> 
