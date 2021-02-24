@@ -45,6 +45,7 @@ body {
   text-align: center;
   padding: 0.3em;
   cursor: default; }
+ 
   .flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
     border-radius: 5px;
     padding: 0.2em 0.5em; }
@@ -55,6 +56,7 @@ body {
     font-weight: bold;
     color: gray; }
   .flickr_pagination a {
+    margin: 0 3px;
     border: 1px solid whitesmoke;
     color: gray;
     text-decoration: none; }
