@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :create, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_user, only: [:edit, :update]
-  before_action :require_same_user, only: [:edit, :update]
-  before_action :require_new_user, only: [:new, :create]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+
   def index
     @users = User.paginate(page: params[:page], per_page: 4)
   end
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
   
   def create
+    @user = User.new(user_params)
     if @user.save 
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to the Alpha Blog #{@user.username}, you have successfully signed up!"
@@ -37,7 +38,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy 
+    @user.destroy
+    session[:user_id] = nil
+    flash[:notice] = "Your account and all associated articles are successfully deleted"
+    redirect_to root_path
+  end
+
   private
+  
   def user_params
     params.require(:user).permit(:username,:email,:password)
   end
@@ -45,6 +54,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
   
   def require_same_user
     if @user != current_user
