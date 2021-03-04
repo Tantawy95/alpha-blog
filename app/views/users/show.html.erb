@@ -1,8 +1,10 @@
 <h1 class="text-center mt-4"><%= @user.username%>'s profile</h1>
 <div class="text-center mt-4">
-<% if logged_in? && @user == current_user %>
-  <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-outline-info" %>
-  <%= link_to "Delete profile", user_path(current_user), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+<% if logged_in?%>
+  <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-outline-info" if @user == current_user  %>
+  <% if @user == current_user || current_user.admin? %>
+  <%= link_to "Delete user", user_path(@user), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+  <%end%> 
 <% end %>
   </div>
 

@@ -40,6 +40,7 @@ class ArticlesController < ApplicationController
   def destroy
    # @article = Article.find(params[:id])
     @article.destroy
+    flash[:notice] = "Article is deleted successfully"
     redirect_to @article 
   end
 
@@ -54,7 +55,7 @@ class ArticlesController < ApplicationController
   end
   
   def require_same_user
-    if @article.user != current_user
+    if @article.user != current_user && !current_user.admin?
       flash[:notice] = "You can only edit or delete your own articles"
       redirect_to @article
     end
