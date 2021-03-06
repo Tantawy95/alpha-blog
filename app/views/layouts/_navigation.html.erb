@@ -33,7 +33,7 @@
         <% end %>
         
           <li class="nav-item">
-        <%= link_to "Logout", logout_path, class: "nav-link", method: :delete %>
+        <%= link_to "Logout", logout_path, class: "nav-link", method: :delete, data: {confirm: "Are you sure?"} %>
         </li>
       <% else %>
         <li class="nav-item">

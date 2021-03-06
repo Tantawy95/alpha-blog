@@ -11,7 +11,7 @@ if user && user.authenticate(params[:session][:password])
   flash[:notice] = "Logged in successfully"
   redirect_to user
 else
-  flash.now[:alert]= "Something went wrong with your logged in information"
+  flash.now[:alert]= "Something went wrong with your log in information"
   render 'new'
 end
 end
