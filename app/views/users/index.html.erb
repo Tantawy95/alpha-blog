@@ -11,7 +11,7 @@
           <%=user.username%>
         </div>
         <div class="card-body">
-          <h5 class="card-title text-success"> image later</h5>
+          <h5 class="card-title text-success"> <%= user.bio %> </h5>
           <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
           <%= link_to "View Profile", user, class: "btn btn-outline-success" %>
           <% if logged_in? %>

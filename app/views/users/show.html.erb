@@ -1,5 +1,7 @@
-<h1 class="text-center mt-4"><%= @user.username%>'s profile</h1>
-<div class="text-center mt-4">
+<h1 class="ml-4 mt-4"><%= @user.username%>'s profile</h1>
+<h1 class="ml-4 mt-4 badge badge-warning" id="badge"><%= @user.bio %></h1>
+
+<div class="ml-4 mt-4">
 <% if logged_in?%>
   <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-outline-info" if @user == current_user  %>
   <% if @user == current_user || current_user.admin? %>
