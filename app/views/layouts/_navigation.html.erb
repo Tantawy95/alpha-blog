@@ -18,6 +18,8 @@
           <% if logged_in? %>
           <div class="dropdown-divider"></div>
           <%= link_to "Create a new article", new_article_path, class: "dropdown-item"%>
+          <%= link_to "Create a private article", new_private_article_path, class: "dropdown-item"%>
+       
         </div>
         <% end %>
       </li>

@@ -1,0 +1,31 @@
+
+  <h2 class="text-center mt-4"><%=@private_article.title%></h2>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            by <%= @private_article.user.username if @private_article.user %>
+          </div>
+          <div class="card-body">
+            <div class="card-text text-left"><%=simple_format(@private_article.description)%></div>
+            <% if logged_in? %>
+              <%= link_to "Edit", edit_private_article_path(@private_article), class: "btn btn-outline-info" if @private_article.user == current_user %>
+              <% if @private_article.user == current_user%>
+              <%= link_to "Delete", private_article_path(@private_article), method: :delete,  data: { Confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+              <% end %>
+            <%end%>
+            </div>
+          <div class="card-footer text-muted">
+          <small>Created <%= time_ago_in_words(@private_article.created_at) %> ago,
+          edited <%= time_ago_in_words(@private_article.updated_at) %> ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+    <%= link_to '[return to private articles listing]', private_articles_path, class: "text-info" %>
+    </div>
+  </div>
+
+    

@@ -1,0 +1,31 @@
+<h1 class="text-center mt-4">Private Articles</h1>
+
+<div class="container">
+  <% if logged_in? %>
+  <% current_user.private_articles.each do |private_article| %>
+      <div class="row justify-content-md-center">
+        <div class="col-8 mt-4">
+          <div class="card text-center shadow mb-5 bg-white rounded">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to private_article.title, private_article_path(private_article), class: "text-success" %></h5>
+              <p class="card-text"><%= truncate(private_article.description, length: 100) %></p>
+              <%= link_to "View", private_article_path(private_article), class: "btn btn-outline-success" %>
+              <% if logged_in? %>
+                  <%= link_to "Edit", edit_private_article_path(private_article), class: "btn btn-outline-info" if private_article.user == current_user %>
+                <% if private_article.user == current_user%>
+                  <%= link_to "Delete", private_article_path(private_article), method: :delete,  data: { Confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+                <%end%>
+                <% end %>
+              </div>
+            <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(private_article.created_at) %> ago,
+            edited <%= time_ago_in_words(private_article.updated_at) %> ago</small>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+<%end%>
+</div>
+
+

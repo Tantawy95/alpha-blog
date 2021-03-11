@@ -3,6 +3,7 @@
 
 <div class="ml-4 mt-4">
 <% if logged_in?%>
+  <%= link_to 'Private Articles', private_articles_path, class: "btn btn-outline-dark" if @user == current_user  %>
   <%= link_to "Edit profile", edit_user_path(@user), class: "btn btn-outline-info" if @user == current_user  %>
   <% if @user == current_user || current_user.admin? %>
   <%= link_to "Delete user", user_path(@user), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
