@@ -26,6 +26,8 @@ gem 'will_paginate', '~> 3.1.0'
 
 gem 'will_paginate-bootstrap4'
 
+gem 'rexml', require: false
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

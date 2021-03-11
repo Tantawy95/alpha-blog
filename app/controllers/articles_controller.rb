@@ -18,14 +18,27 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(params_whitelisting)
-    @article.user = current_user
-    if @article.save
-      flash[:notice] = "Your article was saved successfully"
-    redirect_to @article
-    else
-      render 'new'
-    end
+      if params[:p] 
+        @article = Article.new(params_whitelisting)
+        @article.user = current_user
+        @article.private = true
+        if @article.save
+          flash[:notice] = "Your article was saved successfully"
+        redirect_to @article
+        else
+          render 'new'
+        end
+      elsif params[:a]
+        @article = Article.new(params_whitelisting)
+        @article.user = current_user
+        @article.toggle!(:private)
+        if @article.save
+          flash[:notice] = "Your article was saved successfully"
+        redirect_to @article
+        else
+          render 'new'
+        end
+      end
   end
 
   def update
