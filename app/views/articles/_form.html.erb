@@ -17,9 +17,19 @@
           <%= f.text_area :description, rows: 10, class:"form-control shadow mb-1 bg-white rounded", placeholder: "Description of article" %>
         </div>
       </div>
+
+      <div class="form-group row">
+      <%= f.label :category, class: "col-2 col-form-label ml-3 text-light" %>
+        <div class="col-9 mt-2">
+          <a class = "text-white">Make your selection from the list below (can be empty)</a>
+          <%= f.collection_select :category_ids, Category.all, :id, :name,{prompt: nil}, 
+            {multiple: true, size: 4,class: "custom-select shadow rounded mt-1 "} %>
+        </div>
+      </div>
+
+
       <div class="form-group row justify-content-center">
         <%= f.submit(@article.new_record? ? "Create Article" : "Update Article", class:"btn btn-outline-light btn-lg mb-3") %>
-
       </div>
 
     <% end %>
