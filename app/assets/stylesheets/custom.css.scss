@@ -1,9 +1,25 @@
 @import 'bootstrap/dist/css/bootstrap';
 .navbar {
   background-color: black !important;
+  font-size: 1.5vw;
   }
 .nav-link {
   color: white !important;
+}
+.btn{
+  font-size:1.5vw;
+}
+#labels{
+  font-size: 1vw;
+}
+h1{
+  font-size: 3vw;
+}
+p{
+  font-size: 1.5vw;
+}
+h5{
+  font-size: 2vw;
 }
 #logo{
   float: left;
